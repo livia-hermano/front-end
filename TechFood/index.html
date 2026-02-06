@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="src/styles/style.css">
+    <title>TechFood - Cardápio Digital</title>
+</head>
+<body>
+    <header class="header">
+        <h1 class="logo">TechFood</h1>
+        <button class="search-icon" aria-label="Botão de busca">🔍</button>
+        <button class="cart-icon" aria-label="Botão de Carrinho de Compras">🛒</button>
+    </header>
+        
+    <main>
+        <section class="banner-hero">
+            <h1>Sabor & Saber</h1>
+            <p>A melhor gastronomia tecnológica da região.</p>
+    </section>
+
+    <section class="menu-container">
+        <nav class="abas-lista">
+            <input type="radio" name="categoria" id="massa" checked>
+            <label for="massa">Massas</label>
+
+            <input type="radio" name="categoria" id="bebida">
+            <label for="bebida">Bebidas</label>
+
+            <input type="radio" name="categoria" id="doce">
+            <label for="doce">Doces</label>
+        </nav>
+
+            <section class="aba-tela" id="tela-massa" aria-labelledby="Área de masssas">
+                <nav class="grid-produtos">
+                    <article class="card">
+                        <img src="src/images/lasanha.jpg">
+                        <h3>Lasanha Tradicional</h3>
+                        <p>Massa artesanal ao molho bolonhesa com 4 queijos.</p>
+                        <span class="preco">R$ 45,90</span>
+                        <button class="btn-pedir" onclick="alert('Adicionado')" aria-describedby="Pedir Lasanha Tradicional">Pedir</button>
+                    </article>
+                </nav>
+
+                    <article class="card">
+                        <img src="src/images/ravioli-de-brocolis.jpg">
+                        <h3>Ravioli de Espinafre</h3>
+                        <p>Recheado com ricota fresca e nozes picadas.</p>
+                        <span class="preco">R$ 39,00</span>
+                        <button class="btn-pedir" aria-describedby="Pedir Ravioli de Espinafre">Pedir</button>
+                    </article>
+                </section>
+            </section>
+        </section>
+    </main>
+    <footer class="rodape">
+        <p>Siga-nos: </p>
+        <a href="#" aria-label="Ir para o Facebook da Techbook">Facebook</a> 
+        <a href="#" aria-label="Ir para o Instagram da Techbook">Instagram</a>
+    </footer>
+</body>
+</html>
