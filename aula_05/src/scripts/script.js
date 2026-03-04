@@ -1,0 +1,1 @@
+const tituloNhoque = document.querySelector('#card-nhoque h3')
