@@ -19,6 +19,8 @@ if(tituloNhoque){
 
 const saudacao = document.querySelector('#boas-vindas')
 
+const imagem_card_um = document.querySelector('#foto-destaque')
+
 const agora = new Date()
 const hora = agora.getHours()
 
@@ -32,5 +34,6 @@ const foto = document.querySelector('#foto-destaque')
 
 const caminhoAtual = foto.getAttribute('src')
 
-// foto.setAttribute('src', 'src/images/esgotado.jpg')
-// foto.setAttribute('alt', 'Prato esgotado')
+
+foto.setAttribute('src', 'src/images/esgotado.jpg')
+foto.setAttribute('alt', 'Prato esgotado')
