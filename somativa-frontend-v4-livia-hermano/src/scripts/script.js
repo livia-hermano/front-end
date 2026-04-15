@@ -61,3 +61,6 @@ btn.addEventListener('click', (event) => {
     lista.innerHTML = ""
     texto.value = ""
 })
+
+
+
