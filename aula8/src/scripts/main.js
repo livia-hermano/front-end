@@ -130,7 +130,7 @@ function salvarPedido(pedido) {
 
 function atualizarContadorPedidos(){
   const lista = JSON.parse(localStorage.getItem('techfood_pedidos') || '[]')
-  const total = lista.reduce(function(acc, p){return acc + p.qtd})
+  const total = lista.reduce(function(acc, p){return acc + p.qtd}, 0)
 
   const linkMenu = document.querySelector("#menu a[href='pedidos.html']")
   if(!linkMenu) return
@@ -138,5 +138,8 @@ function atualizarContadorPedidos(){
   let badge = linkMenu.querySelector('.badge-menu')
   if(!badge){
     linkMenu.insertAdjacentHTML("beforeend", "<span class='badge-menu'>0</span>")
+    badge = linkMenu.querySelector('.badge-menu')
   }
+  badge.textContent = total
+  linkMenu.classList.add('menu-ativo')
 }
