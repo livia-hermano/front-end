@@ -1,11 +1,11 @@
 
 
 document.addEventListener("DOMContentLoaded", function () {
-  solicitarNomeCliente(); 
-  exibirNomeCliente();    
-  exibirBoasVindas();
-  exibirDataFooter();
-  fecharMenuAoNavegar();
+  solicitarNomeCliente() 
+  exibirNomeCliente()    
+  exibirBoasVindas()
+  exibirDataFooter()
+  fecharMenuAoNavegar()
 });
 
 
@@ -13,38 +13,39 @@ function solicitarNomeCliente() {
   if (sessionStorage.getItem("techfood_cliente")) return;
 
   const modal = document.getElementById("modal-boas-vindas");
-  if (modal) modal.style.display = "flex";
+  if (modal) modal.style.display = "flex"
 
   const btnConfirmar = document.getElementById("btn-confirmar-nome");
   const inputNome    = document.getElementById("input-nome-cliente");
 
-  if (!btnConfirmar || !inputNome) return;
+  if (!btnConfirmar || !inputNome) return
 
   btnConfirmar.addEventListener("click", function () {
-    const nome = inputNome.value.trim();
+    const nome = inputNome.value.trim()
     if (!nome) {
-      inputNome.focus();
-      return;
+      inputNome.focus()
+      return
     }
-    sessionStorage.setItem("techfood_cliente", nome);
-    modal.style.display = "none";
-    exibirNomeCliente();
-  });
+    // depois de estruturado e registrado o nome eu vou exibir na função abaixo
+    sessionStorage.setItem("techfood_cliente", nome)
+    modal.style.display = "none"
+    exibirNomeCliente()
+  })
 
   inputNome.addEventListener("keydown", function (e) {
-    if (e.key === "Enter") btnConfirmar.click();
-  });
+    if (e.key === "Enter") btnConfirmar.click()
+  })
 
   setTimeout(function () {
-    inputNome.focus();
-  }, 100);
+    inputNome.focus()
+  }, 100)
 }
 
 
 function exibirNomeCliente() {
-  const nome     = sessionStorage.getItem("techfood_cliente");
-  const elemento = document.querySelector("#boas-vindas");
-  if (!elemento) return;
+  const nome     = sessionStorage.getItem("techfood_cliente")
+  const elemento = document.querySelector("#boas-vindas")
+  if (!elemento) return
 
   const agora    = new Date();
   const hora     = agora.getHours() + agora.getMinutes() / 60;
@@ -88,10 +89,6 @@ function exibirDataFooter() {
   });
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// fecharMenuAoNavegar()
-// Aula 8: fecha o menu hambúrguer no mobile ao clicar em link. Sem mudanças.
-// ─────────────────────────────────────────────────────────────────────────────
 function fecharMenuAoNavegar() {
   const isMobile = window.matchMedia("(max-width: 600px)").matches;
   if (!isMobile) return;
