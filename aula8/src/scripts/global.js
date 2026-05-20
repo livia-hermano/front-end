@@ -13,7 +13,7 @@ function exibirBoasVindas() {
   const minutos = agora.getMinutes()
   const horaExata = hora + minutos / 60
 
-  let saudacao;
+  let saudacao
   if (horaExata >= 5 && horaExata < 12) {
     saudacao = "☀️ Bom dia! Qual o seu pedido?"
   } else if (horaExata >= 12 && horaExata < 18) {
