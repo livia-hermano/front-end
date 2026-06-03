@@ -2,6 +2,7 @@
 const BASE_URL = "http://localhost:3000";
 
 
+
 async function buscarProdutos() {
   const response = await fetch(`${BASE_URL}/produtos`);
   const dados = await response.json();
