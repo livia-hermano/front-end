@@ -1,23 +1,47 @@
-document.addEventListener("DOMContentLoaded", () =>{
-    const form = document.querySelector("#form-cadastro");
+document.addEventListener("DOMContentLoaded", () => {
 
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault();
+  const formulario =
+    document.querySelector("#form-cadastro")
 
-    await cadastrarNovoProduto();
-  });
+  formulario.addEventListener(
+    cadastrarNovoProduto()
+  )
 
-});
+})
 
-async function cadastrarNovoProduto() {
+function converterBase64(arquivo) {
 
-  const nome = document.querySelector("#nome").value.trim();
-  const descricao = document.querySelector("#descricao").value.trim();
-  const preco = Number(document.querySelector("#preco").value);
-  const categoria = document.querySelector("#categoria").value;
-  const imagem = document.querySelector("#imagem").value.trim();
+  return new Promise((resolve, reject) => {
 
-  const mensagem = document.querySelector("#mensagem");
+    const reader = new FileReader()
+
+    reader.readAsDataURL(arquivo)
+
+    reader.onload = () => {
+      resolve(reader.result);
+    }
+
+    reader.onerror = erro => {
+      reject(erro)
+    }
+
+  })
+}
+
+async function cadastrarNovoProduto(event) {
+  event.preventDefault()
+  const nome =
+    document.querySelector("#nome").value.trim()
+  const descricao =
+    document.querySelector("#descricao").value.trim()
+  const preco =
+    document.querySelector("#preco").value
+  const categoria =
+    document.querySelector("#categoria").value.trim()
+  const imagem =
+    document.querySelector("#imagem").files[0]
+  const mensagem =
+    document.querySelector("#mensagem")
 
   if (
     !nome ||
@@ -26,40 +50,36 @@ async function cadastrarNovoProduto() {
     !categoria ||
     !imagem
   ) {
-    mensagem.textContent = "Preencha todos os campos.";
-    mensagem.className = "erro";
+    mensagem.textContent =
+      "Preencha todos os campos."
     return;
   }
 
-  const produto = {
-    nome,
-    descricao,
-    preco,
-    categoria,
-    imagem
-  };
-
   try {
 
-    await cadastrarProduto(produto);
+    const realImagem =
+      await converterBase64(
+        imagem
+      )
+
+    await cadastrarProduto({
+      nome,
+      descricao,
+      preco: Number(preco),
+      categoria,
+      realImagem
+    })
 
     mensagem.textContent =
-      " Prato cadastrado com sucesso!";
-
-    mensagem.className = "sucesso";
-
-    document.querySelector("#form-cadastro").reset();
+      "Prato cadastrado com sucesso!"
+    document
+      .querySelector("#form-cadastro")
+      .reset()
 
   } catch (erro) {
 
-    mensagem.textContent =
-      " Erro ao cadastrar prato.";
-
-    mensagem.className = "erro";
-
     console.error(erro);
-  }
-}
 
-
-
+    mensagem.textContent =
+      "Erro ao cadastrar prato."
+  }}
