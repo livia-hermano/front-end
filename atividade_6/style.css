@@ -37,10 +37,16 @@ input {
 }
 #caixa-cor {
   height: 80px;
-  background: #95a5a6;
+  background: #0a5102;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 8px;
   cursor: crosshair;
+}
+
+
+#lista-filmes li:hover {
+  transform: scale(1.02);
+  border-color: #e67e22;
 }
