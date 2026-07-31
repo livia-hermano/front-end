@@ -1,69 +1,59 @@
-#secao-cadastro {
+.container-cadastro {
   max-width: 700px;
   margin: 40px auto;
-  padding: 20px;
+  padding: 25px;
 }
 
 #form-cadastro {
   background: white;
-  border: 1px solid #ddd;
-  border-radius: 12px;
   padding: 25px;
-}
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0,0,0,.08);
 
-.grupo-campo {
   display: flex;
   flex-direction: column;
-  margin-bottom: 16px;
+  gap: 18px;
 }
 
-.grupo-campo label {
-  font-weight: bold;
+.campo {
+  display: flex;
+  flex-direction: column;
+}
+
+.campo label {
   margin-bottom: 6px;
+  font-weight: bold;
   color: #2c3e50;
 }
 
-.grupo-campo input,
-.grupo-campo textarea,
-.grupo-campo select {
+.campo input,
+.campo textarea {
   padding: 12px;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   border-radius: 8px;
-  font-size: 1rem;
 }
 
-.grupo-campo textarea {
+.campo textarea {
+  min-height: 120px;
   resize: vertical;
 }
 
 #btn-cadastrar {
-  width: 100%;
-  padding: 14px;
-  border: none;
-  border-radius: 8px;
-  background: #27ae60;
+  background: #e67e22;
   color: white;
-  font-size: 1rem;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
 }
 
 #btn-cadastrar:hover {
-  background: #219150;
+  background: #d35400;
 }
 
 #mensagem {
-  margin-top: 15px;
   text-align: center;
   font-weight: bold;
+  margin-top: 15px;
 }
-
-.sucesso {
-  color: #27ae60;
-}
-
-.erro {
-  color: #e74c3c;
-}
-
-
