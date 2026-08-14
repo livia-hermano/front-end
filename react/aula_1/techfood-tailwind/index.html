@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TechFood — Sabor & Saber (Tailwind)</title>
+  <link rel="stylesheet" href="output.css">
 
   <!--
     LIVE CODE — DIFERENÇA DO BOOTSTRAP:
@@ -16,7 +17,7 @@
   -->
 
 </head>
-<body>
+<body class="bg-gray-50">
 
   <!--
     LIVE CODE — PASSO 4 (Header com Tailwind)
@@ -28,9 +29,9 @@
     Percebe que text-white, text-center, py-4, mb-4 são IGUAIS!
     Só o bg muda: bg-danger (nome semântico) → bg-red-600 (nome descritivo)
   -->
-  <header>
-    <h1>Sabor &amp; Saber</h1>
-    <p>Cardápio digital</p>
+  <header class="bg-green-200 text-white text-center py-4 mb-4">
+    <h1 class="font-bold text-3x1">Sabor &amp; Saber</h1>
+    <p class="text-lg mt-1">Cardápio digital</p>
   </header>
 
   <!--
@@ -50,7 +51,7 @@
 
     No Tailwind o grid vai direto na section, sem div row.
   -->
-  <main>
+  <main class="max-w-6xl mx-auto">
     <h2>Nosso Cardápio</h2>
 
     <section id="cardapio">
