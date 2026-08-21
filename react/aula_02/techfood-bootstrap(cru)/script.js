@@ -58,10 +58,21 @@ function criarCardPrato(prato) {
     `;
   */
   card.innerHTML = `
-    <div class="p-4">
-      <h3>${prato.nome}</h3>
-      <span>${prato.categoria}</span>
-      <div>${prato.formatarPreco()}</div>
+    <div class="card-body">
+      <h5 class="card-title fw-bold">${prato.nome}</h5>
+      <p class="card-text text-muted">${prato.categoria}</p>
+      <p class="card-text fs-5 fw-bold text-success">${prato.formatarPreco()}</p>
+    </div>
+    <div class="card-footer bg-transparent border-top-0 pb-3">
+      <button class="btn btn-danger w-100"
+              data-bs-toggle="modal"
+              data-bs-target="#modalPrato"
+              data-nome="${prato.nome}"
+              data-categoria="${prato.categoria}"
+              data-preco="${prato.formatarPreco()}"
+              data-descricao="${prato.descricao}">
+        Ver detalhes
+      </button>
     </div>
   `;
 
@@ -77,6 +88,16 @@ function renderizarCardapio() {
 }
 
 renderizarCardapio();
+
+document.addEventListener('show.bs.modal', (event) => {
+  const btn  = event.relatedTarget;
+  if (!btn) return;
+
+  document.getElementById('modalNome').textContent      = btn.getAttribute('data-nome');
+  document.getElementById('modalCategoria').textContent = btn.getAttribute('data-categoria');
+  document.getElementById('modalPreco').textContent     = btn.getAttribute('data-preco');
+  document.getElementById('modalDescricao').textContent = btn.getAttribute('data-descricao');
+});
 
 /*
   LIVE CODE — PASSO 4 (Modal):
